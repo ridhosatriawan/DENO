@@ -1,0 +1,50 @@
+<form action="/posting" method="POST">
+    <div class="form-group">
+        <small class="form-text form-muted">Judul</small>
+        <input type="text" name="judul" id="idJudul" class="form-control">
+    </div>
+    <div class="form-group">
+        <small class="form-text form-muted">Permalink</small>
+        <input type="text" name="permalink" id="idPermalink" class="form-control">
+    </div>
+    <div class="form-group">
+        <small class="form-text form-muted">Kategori</small>
+        <select name="kategori" class="form-control" id="idSelect"></select>
+    </div>
+    <div class="form-group">
+        <small class="form-text form-muted">Deskripsi</small>
+        <textarea name="deskripsi" class="form-control" id="idDeskripsi" cols="10" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+        <small class="form-text form-muted">Konten</small>
+        <textarea name="konten" class="form-control" id="idKonten" cols="30" rows="10"></textarea>
+    </div>
+    <br>
+    <input type="submit"  value="Posting" class="btn btn-primary">
+</form>
+<script>
+    $(document).ready(function(){
+        $("#idJudul").blur(function(){
+            var judul = $("#idJudul").val();
+            var permalink = judul.toLowerCase().replace(/ /g, '-').replace(/[^a-zA-Z0-9-_]/g,'');
+            $("#idPermalink").val(permalink);
+        });
+
+        var ktg = '<%= JSON.stringify(subData.pemrograman) %>'.replace(/&quot;/g, '"');
+        var selectEl = $('#idSelect');
+        $.each(
+            JSON.parse(ktg), function(index, data){
+                $("<option/>", {
+                    value : data.kode,
+                    text : data.nama
+                }).appendTo(selectEl);
+            }
+        );
+
+        $('#idKonten').summernote({
+            placeholder: 'Tulis Artikel',
+        tabsize: 2,
+        height: 100
+        });
+    });
+  </script>

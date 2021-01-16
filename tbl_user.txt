@@ -1,0 +1,18 @@
+-- Table: public.tbl_user
+
+-- DROP TABLE public.tbl_user;
+
+CREATE TABLE public.tbl_user
+(
+    username character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    fullname character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    paswd text COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT tbl_user_pkey PRIMARY KEY (username)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.tbl_user
+    OWNER to postgres;

@@ -1,0 +1,17 @@
+-- Table: public.tbl_kategori
+
+-- DROP TABLE public.tbl_kategori;
+
+CREATE TABLE public.tbl_kategori
+(
+    kode character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    nama character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT tbl_kategori_pkey PRIMARY KEY (kode)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.tbl_kategori
+    OWNER to postgres;

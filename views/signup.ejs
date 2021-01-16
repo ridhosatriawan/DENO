@@ -1,0 +1,20 @@
+<% if(subData.statusSigup != '') {%>
+<div class="alert alert-primary" role="alert">
+<%= subData.statusSigup %>
+</div>
+<% } %>
+<form action="signup" method="post">
+    <h1>Sign Up</h1>
+        <p>
+            Full Name : <input type="text" name="name">
+        </p>
+        <p>
+            Username : <input type="text" name="user">
+        </p>
+        <p>
+            Password : <input type="password" name="pass">
+        </p>
+        <p>
+            <input type="submit" value="Sign Up">
+        </p>
+</form>
